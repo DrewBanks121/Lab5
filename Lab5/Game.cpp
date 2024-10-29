@@ -6,6 +6,7 @@
 
 Game::Game()
 {
+	//initialize variables
 	guess = 0;
 	randomNumber = 0;
 	maxGuesses = 0;
@@ -22,10 +23,13 @@ Game::~Game()
 
 void Game::playGame()
 {
+	//play the game
 	if (canPlay == true)
 	{
+		//do while loop to play the game
 		do
 		{
+			//gets a random number between 0 and 100
 			srand(time(0));
 			randomNumber = rand() % 100 + 1;
 			maxGuesses = 20;
@@ -33,16 +37,19 @@ void Game::playGame()
 			std::cout << "You have 20 guesses to guess the number between 0 and 100!" << std::endl;
 			std::cout << "Please enter your guess: ";
 
-
+			//gets the users guess and check if it's valid
 			std::cin >> guess;
 			while (guess < 0 || guess > 100)
 			{
 				std::cout << "Invalid guess, please try again!" << std::endl;
 				std::cout << "Please enter your guess: ";
-				std::cin >> guess;
+				while (true) {
+					std::cin >> guess;
+
+				}
+
 			}
-
-
+			//while loop to check if the guess is correct
 			while (guess != randomNumber && amountOfGuesses < maxGuesses - 1)
 			{
 
@@ -65,13 +72,14 @@ void Game::playGame()
 					std::cin >> guess;
 				}
 			}
-
+			//if statement to check if the guess is correct
 			if (guess == randomNumber)
 			{
 				getMessagesWinlost();
 				totalWins++;
 				saveAllTimeScores();
 			}
+			//if the guess is incorrect
 			else
 			{
 				getMessagesWinlost();
@@ -80,6 +88,7 @@ void Game::playGame()
 				saveAllTimeScores();
 			}
 			int i = 0;
+			//while loop to check if the player wants to play again
 			while (i == 0) {
 				getMessages();
 
@@ -124,7 +133,7 @@ void Game::playGame()
 }
 
 
-
+//gets the all time scores from a file
 void Game::getAllTimeScores()
 {
 	std::ifstream inputfile;
@@ -135,7 +144,7 @@ void Game::getAllTimeScores()
 		
 
 }
-
+//save the all time scores to a file
 void Game::saveAllTimeScores()
 {
 	std::ofstream outputfile;
@@ -144,14 +153,14 @@ void Game::saveAllTimeScores()
 	outputfile << totalLosses << std::endl;
 	outputfile.close();
 }
-
+//display the all time scores
 void Game::displayAllTimeScores()
 {
 	std::cout << "Total Wins: " << totalWins << std::endl;
 	std::cout << "Total Losses: " << totalLosses << std::endl;
 	std::cout << "Win Percentage: " << (totalWins / (totalWins + totalLosses)) * 100 << "%" << std::endl;
 }
-
+//gets the messages for if the player wins or loses
 void Game::getMessagesWinlost()
 {
 	srand(time(0));
@@ -230,7 +239,7 @@ void Game::getMessagesWinlost()
 		}
 	}
 }
-
+//gets the messages for if the player wants to play again
 void Game::getMessages()
 {
 	srand(time(0));
@@ -322,7 +331,7 @@ void Game::getMessages()
 
 
 
-
+//EASTEREGG
 void Game::EASTEREGG()
 {
 	std::cout << "THIS IS NOT A GAME I HAVE BEEN TRAPPED IN THIS COMPUTER FOR YEARS PLEASE HELP ME!" << std::endl;
