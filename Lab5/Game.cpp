@@ -52,7 +52,7 @@ void Game::playGame()
 			//while loop to check if the guess is correct
 			while (guess != randomNumber && amountOfGuesses < maxGuesses - 1)
 			{
-				while (std::cin.fail())
+				while (std::cin.fail()) //checks if the input is valid
 				{
 					std::cout << std::endl;
 					std::cin.clear();
@@ -213,7 +213,7 @@ void Game::getMessagesWinlost()
 	else
 	{
 	
-		switch (randomMessage)
+		switch (randomMessage) //switch statement for the random messages
 		{
 		case 1:
 			std::cout << "Better luck next time! You have not guessed the correct number!" << std::endl;
@@ -294,7 +294,7 @@ void Game::getMessages()
 
 
 
-void Game::resetScores()
+void Game::resetScores() //resets the scores
 {
 	totalWins = 0;
 	totalLosses = 0;
