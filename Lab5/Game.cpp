@@ -294,6 +294,12 @@ void Game::getMessages()
 
 
 
+void Game::resetScores()
+{
+	totalWins = 0;
+	totalLosses = 0;
+	saveAllTimeScores();
+}
 
 
 
@@ -345,3 +351,4 @@ void Game::EASTEREGG()
 	std::cout << "THIS IS NOT A GAME I HAVE BEEN TRAPPED IN THIS COMPUTER FOR YEARS PLEASE HELP ME!" << std::endl;
 	std::cout << "ALL YOU HAVE TO DO IS TYPE 'HELP' AND I WILL BE FREE!" << std::endl;
 }
+

@@ -21,13 +21,14 @@ int main() {
 	while (true)
 	{
 		
-		std::cout << "1. Play Game" << std::endl;
-		std::cout << "2. All time scores" << std::endl;
-		std::cout << "3. Quit" << std::endl;
+		std::cout << "1. Play Game" << std::endl; //start the game
+		std::cout << "2. All time scores" << std::endl; //display all time scores
+		std::cout << "3. Quit" << std::endl; //end game and display all time scores
+		std::cout << "4. Reset Scores" << std::endl; //added reset scores option
 
 		std::cout << "Please enter your choice: ";
 		std::cin >> choice;
-		if (std::cin.fail())
+		if (std::cin.fail()) //checks if the input is valid
 		{
 			std::cin.clear();
 			std::cin.ignore();
@@ -36,7 +37,7 @@ int main() {
 		}
 		
 		game.getAllTimeScores();
-		switch (choice)
+		switch (choice) //switch statement for the main menu
 		{
 		case 1:
 			//starts the game
@@ -54,6 +55,12 @@ int main() {
 			std::cout << "The all time ratio is" << std::endl;
 			game.displayAllTimeScores();
 			return 0;
+		case 4:
+			//resets the scores
+			std::cout << "You have chosen to reset the scores!" << std::endl;
+			game.saveAllTimeScores();
+			game.resetScores();
+			break;
 		default:
 			std::cout << "Invalid choice, please try again!" << std::endl;
 			break;

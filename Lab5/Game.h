@@ -14,6 +14,7 @@ public:
 	void getMessagesWinlost();
 	void getMessages();
 	void EASTEREGG();
+	void resetScores();
 
 private:
 	bool canPlay = true;
