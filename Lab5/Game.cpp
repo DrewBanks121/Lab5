@@ -52,7 +52,15 @@ void Game::playGame()
 			//while loop to check if the guess is correct
 			while (guess != randomNumber && amountOfGuesses < maxGuesses - 1)
 			{
-
+				while (std::cin.fail())
+				{
+					std::cout << std::endl;
+					std::cin.clear();
+					std::cin.ignore();
+					std::cout << "Invalid choice, please try again!" << std::endl;
+					std::cout << "Please enter your guess: ";
+					std::cin >> guess;
+				}
 				if (guess < randomNumber)
 				{
 					std::cout << "Your guess is too low!" << std::endl;
