@@ -58,7 +58,6 @@ int main() {
 		case 4:
 			//resets the scores
 			std::cout << "You have chosen to reset the scores!" << std::endl;
-			game.saveAllTimeScores();
 			game.resetScores();
 			break;
 		default:
